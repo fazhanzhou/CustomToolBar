@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * Created by zhoufazhan on 2017/7/25.
@@ -25,9 +26,9 @@ public class CustomToolBar  extends RelativeLayout implements View.OnClickListen
     private String rightText;
     private int leftImage;
     private int rightImage;
-    private CustomTextView leftView;
-    private CustomTextView middleView;
-    private CustomTextView rightView;
+    private TextView leftView;
+    private TextView middleView;
+    private TextView rightView;
 
     public CustomToolBar(Context context) {
         this(context, null);
@@ -48,10 +49,10 @@ public class CustomToolBar  extends RelativeLayout implements View.OnClickListen
 
     public void initView(TypedArray typedArray) {
         LayoutInflater.from(getContext()).inflate(R.layout.toolbar, this);
-        leftView = findViewById(R.id.left);
+        leftView = (TextView) findViewById(R.id.left);
         leftView.setOnClickListener(this);
-        middleView = findViewById(R.id.middle);
-        rightView = findViewById(R.id.right);
+        middleView = (TextView) findViewById(R.id.middle);
+        rightView = (TextView) findViewById(R.id.right);
         rightView.setOnClickListener(this);
         leftText = typedArray.getString(R.styleable.CustomToolBar_leftText);
         rightText = typedArray.getString(R.styleable.CustomToolBar_rightText);
